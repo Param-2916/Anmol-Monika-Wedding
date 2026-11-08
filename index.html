@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,viewport-fit=cover"
+    />
+    <title>Anmol & Monika | Shubh Vivah</title>
+    <meta property="og:title" content="Anmol & Monika | Shubh Vivah" />
+    <meta
+      property="og:description"
+      content="You are cordially invited to the wedding of Anmol & Monika, 23–25 November 2026."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="assets/monogram.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Jost:wght@300;400;500&family=Noto+Serif+Devanagari:wght@500;600&family=Hind:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="locked">
+    <canvas id="fx"></canvas>
+    <header id="bar">
+      <button id="mus" aria-label="Music">♪</button
+      ><img class="mono-s" src="assets/monogram.png" alt="Anmol and Monika monogram" />
+      <button id="lng">हिंदी</button>
+    </header>
+
+    <div id="gate">
+      <div class="door l"></div>
+      <div class="door r"></div>
+      <div class="glow"></div>
+      <div class="gc" id="gc">
+        <svg
+          class="gan"
+          viewBox="0 0 60 60"
+          fill="none"
+          stroke="#C29B58"
+          stroke-width="1.2"
+        >
+          <circle cx="30" cy="34" r="12" />
+          <path
+            d="M30 22c-8-2-14 4-14 10M30 22c8-2 14 4 14 10M26 38c0 8 4 10 6 8s-2-6-2-8M18 30c-6 2-8 8-4 12M42 30c6 2 8 8 4 12"
+          />
+          <path d="M30 14l-3 6h6z" />
+        </svg>
+        <p class="om" data-i="om"></p>
+        <div class="seal"><img src="assets/monogram.png" alt="Anmol and Monika monogram" /></div>
+        <h2 class="gn">
+          <span data-n="a"></span> &amp; <span data-n="b"></span>
+        </h2>
+        <button id="openBtn" class="btn gold" data-i="open"></button>
+        <button id="gl" class="lnk">हिंदी</button>
+      </div>
+    </div>
+
+    <main>
+      <section id="hero" data-fl="rose">
+        <svg
+          class="arch"
+          viewBox="0 0 300 420"
+          fill="none"
+          stroke="#C29B58"
+          stroke-width="1.4"
+        >
+          <path
+            class="draw"
+            d="M20 410V190C20 150 50 140 62 118S70 70 100 60 130 30 150 8c20 22 20 40 50 52s38 30 38 58 42 32 42 72V410"
+          />
+          <path
+            class="draw"
+            d="M40 410V196C40 164 66 156 78 134S86 90 112 80 140 56 150 34c14 20 18 32 40 46s30 28 30 54 36 36 36 62V410"
+            opacity=".6"
+          />
+        </svg>
+        <div class="hc">
+          <p class="om" data-i="om"></p>
+          <div class="seal sm"><img src="assets/monogram.png" alt="Anmol and Monika monogram" /></div>
+          <p class="eyb" data-i="wed"></p>
+          <h1 class="nm" id="nm"></h1>
+          <p class="ct">Sadhewal · Sri Anandpur Sahib</p>
+        </div>
+      </section>
+
+      <section id="reveal" data-fl="rose2">
+        <h3 class="h" data-i="dateReveal"></h3>
+        <i class="dia"></i>
+        <div class="scratch-card" id="scratchCard">
+          <p class="revealed-date" id="revealedDate" aria-live="polite" hidden></p>
+          <canvas id="scratchSurface" role="button" tabindex="0" aria-keyshortcuts="Enter Space"></canvas>
+        </div>
+        <p class="sub scratch-hint" id="scratchHint" data-i="scratchHint"></p>
+      </section>
+
+      <section id="bless" data-fl="marigold">
+        <h3 class="h" data-i="bless"></h3>
+        <i class="dia"></i>
+        <p class="shl">
+          वक्रतुण्ड महाकाय सूर्यकोटि समप्रभ ।<br />निर्विघ्नं कुरु मे देव
+          सर्वकार्येषु सर्वदा ॥
+        </p>
+        <p class="sub" data-i="blessTxt"></p>
+      </section>
+
+      <section id="inv" data-fl="lotus">
+        <h3 class="h" data-i="inv"></h3>
+        <i class="dia"></i>
+        <div class="card"><div class="cin" id="card"></div></div>
+      </section>
+
+      <section id="cdw" data-fl="pink">
+        <h3 class="h" data-i="cd"></h3>
+        <i class="dia"></i>
+        <p class="sub" data-i="cdTo"></p>
+        <div class="cd">
+          <div><b id="c0">0</b><span data-i="d"></span></div>
+          <div><b id="c1">0</b><span data-i="h"></span></div>
+          <div><b id="c2">0</b><span data-i="m"></span></div>
+          <div><b id="c3">0</b><span data-i="s"></span></div>
+        </div>
+        <p class="sm2" data-i="cdNote"></p>
+      </section>
+
+      <section id="fun" data-fl="ashoka">
+        <h3 class="h" data-i="fn"></h3>
+        <i class="dia"></i>
+        <div class="tl" id="tl">
+          <i class="thr"><i id="fill"></i></i>
+        </div>
+        <button id="film" class="btn" data-i="film" hidden></button>
+      </section>
+
+      <section id="end" data-fl="rose2">
+        <h3 class="h" data-i="thanks"></h3>
+        <i class="dia"></i>
+        <p class="sub" data-i="thanksTxt"></p>
+        <p class="wb" data-i="wbcf"></p>
+        <div class="rs">
+          <b data-i="rsvp"></b>
+          <p id="rsv"></p>
+        </div>
+        <div class="acts">
+          <button class="btn" id="shr" data-i="share"></button
+          ><button class="btn" id="cpy" data-i="copy"></button
+          ><button class="btn" id="pdf" data-i="pdf"></button
+          ><button class="btn gold" id="top" data-i="top"></button>
+        </div>
+      </section>
+    </main>
+    <div id="toast"></div>
+    <video id="vid" playsinline controls hidden></video>
+    <script src="config.js"></script>
+    <script src="i18n.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
