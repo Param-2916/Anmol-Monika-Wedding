@@ -11,7 +11,7 @@ body:not(.locked) #bar{opacity:1}
 #bar button{background:none;border:1px solid var(--au);color:var(--tc);border-radius:20px;min-width:38px;height:34px;padding:0 12px;font:inherit;cursor:pointer}
 .mono-s{width:36px;height:36px;object-fit:contain}
 .mono{font-family:'Cormorant Garamond',serif;color:var(--tc)}
-section{position:relative;min-height:100svh;padding:90px 22px 70px;text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:2}
+section{position:relative;min-height:min(76svh,620px);padding:58px 22px 48px;text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:2}
 section:nth-child(even){background:linear-gradient(var(--ch),var(--iv) 85%)}
 .h{font-size:34px;color:var(--tc);letter-spacing:.08em;text-transform:uppercase}body.hi .h{text-transform:none}
 .dia{display:block;width:10px;height:10px;border:1px solid var(--au);transform:rotate(45deg);margin:14px auto 22px;position:relative}
@@ -48,16 +48,21 @@ body.go .draw{animation:dr 3s ease forwards}@keyframes dr{to{stroke-dashoffset:0
 .hc{position:relative;margin-top:70px;display:flex;flex-direction:column;align-items:center;gap:6px}
 .eyb{letter-spacing:.3em;text-transform:uppercase;font-size:11px;color:var(--au)}
 .nm{font-size:clamp(48px,15vw,76px);line-height:1.05;color:var(--tc)}.nm .w{display:inline-block;overflow:hidden;vertical-align:bottom}
+body.hi .nm{line-height:1.55}
+body.hi .nm .w{overflow:visible;vertical-align:baseline}
 .nm .c{display:inline-block;transform:translateY(110%);transition:transform .9s cubic-bezier(.2,.8,.2,1)}body.go .nm .c{transform:none}
 .ct{font-size:13px;opacity:.7}
 .shl{font:600 21px/1.9 'Noto Serif Devanagari',serif;color:var(--tc);margin-bottom:18px}
 /* scratch reveal */
 .scratch-card{position:relative;width:min(100%,360px);aspect-ratio:2.1;border:1px solid var(--au);border-radius:8px;background:linear-gradient(135deg,#fff,var(--mg));box-shadow:0 12px 32px rgba(46,36,31,.14);overflow:hidden}
 .revealed-date{height:100%;display:grid;place-items:center;padding:16px;color:var(--tc);font:500 clamp(22px,6vw,32px) 'Cormorant Garamond',serif;letter-spacing:.04em}
-.revealed-date[hidden]{display:none}
+#scratchCard #revealedDate{opacity:0;transform:scale(.96);transition:opacity .7s ease,transform .7s ease}
+#scratchCard #revealedDate[hidden]{display:none}
+#scratchCard.revealed #revealedDate{opacity:1;transform:none}
 body.hi .revealed-date{font-family:'Noto Serif Devanagari',serif}
-#scratchSurface{position:absolute;inset:0;width:100%;height:100%;cursor:crosshair;touch-action:none}
+#scratchSurface{position:absolute;inset:0;width:100%;height:100%;cursor:crosshair;touch-action:none;transition:opacity .7s ease}
 #scratchSurface[hidden]{display:none}
+#scratchCard.revealed #scratchSurface{opacity:0;pointer-events:none}
 .scratch-hint{margin-top:16px}
 /* invitation card */
 .card{border:1px solid var(--au);padding:7px;background:var(--iv);max-width:380px;width:100%;box-shadow:0 14px 40px rgba(46,36,31,.12);position:relative}
@@ -78,6 +83,12 @@ body.hi .cin{font-family:'Noto Serif Devanagari',serif;font-size:16px}
 .ev .dd{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--au)}
 .ev h4{font:600 24px 'Cormorant Garamond',serif;color:var(--tc)}body.hi .ev h4{font-family:'Noto Serif Devanagari';font-size:19px}
 .ev p{font-size:14px}.ev .btn{padding:8px 12px;font-size:11px;margin:8px 6px 0 0}
+.venue-card{width:min(100%,380px);padding:26px 22px;background:var(--ch);border:1px solid rgba(194,155,88,.6);border-radius:14px;box-shadow:0 12px 32px rgba(46,36,31,.1)}
+.venue-day,.venue-label{color:var(--au);font-size:12px;letter-spacing:.14em;text-transform:uppercase}
+.venue-card h4{margin:8px 0;font:600 28px 'Cormorant Garamond',serif;color:var(--tc)}
+body.hi .venue-card h4{font-family:'Noto Serif Devanagari',serif}
+.venue-label{margin-top:18px}
+.venue-card #venueAddress{font-size:15px}
 .wb{margin-top:16px;font-size:13px;letter-spacing:.1em}.rs{margin:22px 0;padding:16px;border:1px solid var(--au);max-width:340px;background:var(--iv)}.rs b{color:var(--tc);letter-spacing:.2em;text-transform:uppercase;font-size:12px}
 .rs a{color:var(--tc)}.acts{display:flex;flex-wrap:wrap;justify-content:center}
 #toast{position:fixed;bottom:30px;left:50%;transform:translate(-50%,20px);background:var(--es);color:var(--iv);padding:10px 18px;border-radius:20px;opacity:0;transition:.4s;z-index:90}#toast.s{opacity:1;transform:translate(-50%,0)}

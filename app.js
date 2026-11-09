@@ -74,10 +74,16 @@
             "00";
       const g = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(a + " & " + b + " – " + t(e.id))}&dates=${s}/${en}&ctz=${C.tz}&location=${q}`;
       h += `<div class="ev rv"><div class=dd>${day(e.date)}, ${dnum(e.date)} ${I18N.months[L]} 2026</div><h4>${t(e.id)}</h4><p>${e.time}<br>${esc(v.name)}${e.at == "glitz" ? ", " + esc(v.addr) : ""}</p>
-  <a class=btn target=_blank rel=noopener href="https://www.google.com/maps/search/?api=1&query=${q}">${t("dir")}</a><a class=btn target=_blank rel=noopener href="${g}">${t("gcal")}</a><a class=btn href="#" data-ics="${e.id}">${t("ics")}</a></div>`;
+  <a class=btn target=_blank rel=noopener href="${g}">${t("gcal")}</a><a class=btn href="#" data-ics="${e.id}">${t("ics")}</a></div>`;
     });
     $$("#tl .ev").forEach((e) => e.remove());
     $("#tl").insertAdjacentHTML("beforeend", h);
+    const weddingDay = C.events.find((event) => event.id == "barat");
+    const weddingVenue = C.venues[weddingDay.at];
+    $("#venueName").textContent = weddingVenue.name;
+    $("#venueDate").textContent =
+      `${day(weddingDay.date)}, ${dnum(weddingDay.date)} ${I18N.months[L]} 2026 · ${weddingDay.time}`;
+    $("#venueAddress").textContent = weddingVenue.addr;
     $$("[data-ics]").forEach(
       (x) =>
         (x.onclick = (ev) => {
@@ -178,13 +184,17 @@
     scratchStarted = true;
   }
   function revealDate() {
+    if (dateRevealed) return;
     dateRevealed = true;
     $("#revealedDate").hidden = false;
     $("#scratchHint").textContent = t("scratchDone");
     scratch.setAttribute("aria-label", t("scratchDone"));
-    scratch.hidden = true;
+    scratch.setAttribute("aria-hidden", "true");
+    scratch.tabIndex = -1;
     scratch.setAttribute("aria-pressed", "true");
-    $("#scratchCard").classList.add("revealed");
+    requestAnimationFrame(() =>
+      $("#scratchCard").classList.add("revealed"),
+    );
   }
   function checkScratchProgress() {
     const pixels = scratchContext.getImageData(0, 0, scratch.width, scratch.height).data;
